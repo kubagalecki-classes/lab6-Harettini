@@ -9,7 +9,7 @@
 std::vector< char > foo(std::list< Human >& people)
 {
     std::vector< char > ret_v(people.size());
-    std::for_each(people.cend(), people.cbegin(), [&](const Human& HU) {
+    std::for_each(people.crbegin(), people.crend(), [&](const Human& HU) {
         ret_v.push_back(HU.isMonster() ? 'n' : 'y');
     });
     std::for_each(people.begin(), people.end(), [](Human& HU) { HU.birthday(); });
